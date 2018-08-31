@@ -20,13 +20,10 @@ The next line contains `n` space-separated integers `prices[i]`
 
 ## Constraints
 
-`1 <= n <= 10^5`
-
-`1 <= k <= 10^9`
-
-`1 <= prices[i] <= 10^9`
-
-A toy can't be bought multiple times.
+* `1 <= n <= 10^5`
+* `1 <= k <= 10^9`
+* `1 <= prices[i] <= 10^9`
+* A toy can't be bought multiple times.
 
 ## Output Format
 
