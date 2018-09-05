@@ -6,21 +6,21 @@
  * @return {number}
  */
 function fourSumCount(A, B, C, D) {
-  const freqTable = {};
+  const map = new Map();
 
   A.forEach(a => {
     B.forEach(b => {
       const sum = a + b;
-      const freq = freqTable[sum];
-      freqTable[sum] = freq ? freq + 1 : 1;
+      const freq = map.get(sum) || 0;
+      map.set(sum, freq + 1);
     })
   })
 
- let count = 0;
+  let count = 0;
 
   C.forEach(c => {
     D.forEach(d => {
-      count += freqTable[-(c + d)] || 0;
+      count += map.get(-(c + d)) || 0;
     })
   })
 
