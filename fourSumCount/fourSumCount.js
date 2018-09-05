@@ -1,4 +1,4 @@
-/*
+/**
  * @param {number[]} A
  * @param {number[]} B
  * @param {number[]} C
@@ -6,33 +6,25 @@
  * @return {number}
  */
 function fourSumCount(A, B, C, D) {
-  let count = 0;
-
-  const hashTable = {};
+  const freqTable = {};
 
   A.forEach(a => {
     B.forEach(b => {
       const sum = a + b;
+      const freq = freqTable[sum];
+      freqTable[sum] = freq ? freq + 1 : 1;
+    })
+  })
 
-      if (sum in hashTable) {
-        hashTable[sum]++;
-      } else {
-        hashTable[sum] = 1;
-      }
-    });
-  });
+ let count = 0;
 
   C.forEach(c => {
     D.forEach(d => {
-      const sum = c + d;
-
-      if (-sum in hashTable) {
-        count += hashTable[-sum];
-      }
-    });
-  });
+      count += freqTable[-(c + d)] || 0;
+    })
+  })
 
   return count;
-}
+};
 
 console.assert(fourSumCount([1, 2], [-2, -1], [-1, 2], [0, 2]) === 2);
