@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {number[]}
  */
-var topKFrequent = function(nums, k) {
+function topKFrequent(nums, k) {
   const valueFreqPairs = Array.from(
     nums
       .reduce((acc, num) => {
